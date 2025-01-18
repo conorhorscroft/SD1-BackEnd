@@ -1,6 +1,6 @@
 package com.example.SlainteFit.model;
 
-import com.example.SlainteFit.model.User.User;
+import com.example.SlainteFit.model.User.UserData;
 
 import java.time.LocalDate;
 
@@ -9,10 +9,10 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "nutrition_data")
-public class NutritionLog {
+public class NutritionData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long nutrition_id;
 
     private LocalDate date;
     private Float calories;
@@ -22,12 +22,12 @@ public class NutritionLog {
     private Float hydration;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @JoinColumn(name = "id", nullable = false)
+    private UserData user;
 
     // Getters and Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() { return nutrition_id; }
+    public void setId(Long nutrition_id) { this.nutrition_id = nutrition_id; }
 
     public LocalDate getDate() { return date; }
     public void setDate(LocalDate date) { this.date = date; }
@@ -47,7 +47,7 @@ public class NutritionLog {
     public Float getHydration() { return hydration; }
     public void setHydration(Float hydration) { this.hydration = hydration; }
 
-    public User getUser() { return user; }
-    public void setUser(User user) { this.user = user; }
+    public UserData getUser() { return user; }
+    public void setUser(UserData user) { this.user = user; }
 
 }

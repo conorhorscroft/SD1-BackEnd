@@ -19,30 +19,30 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public List<User> getUsers() {
+    public List<UserData> getUsers() {
         return userRepository.findAll();
     }
 
-    public List<User> getUserByEmail (String email) {
+    public List<UserData> getUserByEmail (String email) {
         return userRepository.findAll().stream().filter(user -> user.getEmail().toLowerCase().equals(email)).collect(Collectors.toList());
     }
 
-    public User addUser(User user) {
+    public UserData addUser(UserData user) {
         userRepository.save(user);
         return user;
     }
 
-    public User updateUser(User updatedUser) {
-        Optional<User> existingUser = userRepository.findById(updatedUser.getId());
+    public UserData updateUser(UserData updatedUser) {
+        Optional<UserData> existingUser = userRepository.findById(updatedUser.getId());
 
         if (existingUser.isPresent()) {
-            User userToUpdate = existingUser.get();
+            UserData userToUpdate = existingUser.get();
             userToUpdate.setId(updatedUser.getId());
             userToUpdate.setEmail(updatedUser.getEmail());
             userToUpdate.setAge(updatedUser.getAge());
             userToUpdate.setHeight(updatedUser.getHeight());
             userToUpdate.setWeight(updatedUser.getWeight());
-            userToUpdate.setNutritionLogs(updatedUser.getNutritionLogs());
+            userToUpdate.setNutritionData(updatedUser.getNutritionData());
             userToUpdate.setWorkouts(updatedUser.getWorkouts());
 
             userRepository.save(userToUpdate);

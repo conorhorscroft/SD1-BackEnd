@@ -2,7 +2,7 @@ package com.example.SlainteFit.model.User;
 
 
 
-import java.util.Collections;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +33,7 @@ public class UserController {
     }
 
     @GetMapping
-    public List<User> getUsers( 
+    public List<UserData> getUsers( 
         @RequestParam(required = false) Long id,
         @RequestParam(required = false) String name,
         @RequestParam(required = false) String email,
@@ -43,18 +43,18 @@ public class UserController {
             if (email != null) {
         return userService.getUserByEmail(email);
     }
-    return Collections.emptyList();
+    return userService.getUsers();
 
         }
     @PostMapping
-    public ResponseEntity<User> addUserEntity(@RequestBody User user) {
-        User createdUser = userService.addUser(user);
+    public ResponseEntity<UserData> addUserEntity(@RequestBody UserData user) {
+        UserData createdUser = userService.addUser(user);
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 
     @PutMapping 
-    public ResponseEntity<User> updateUser(@RequestBody User user) {
-        User resultUser = userService.updateUser(user);
+    public ResponseEntity<UserData> updateUser(@RequestBody UserData user) {
+        UserData resultUser = userService.updateUser(user);
         if (resultUser != null) {
             return new ResponseEntity<>(resultUser, HttpStatus.OK);
         }

@@ -3,17 +3,18 @@ package com.example.SlainteFit.model.User;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.SlainteFit.model.NutritionLog;
-import com.example.SlainteFit.model.Workout;
+import com.example.SlainteFit.model.NutritionData;
+import com.example.SlainteFit.model.WorkoutData;
 
 import jakarta.persistence.*; // Import JPA package
 
 @Entity
 @Table(name = "user_data")
-public class User {
+public class UserData {
 
     @Id // Indicates this field is the primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generates IDs
+    @Column(name = "id")
     private Long id;
 
     private String name;
@@ -25,16 +26,16 @@ public class User {
   
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Workout> workouts = new ArrayList<>();
+    private List<WorkoutData> workouts = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<NutritionLog> nutritionLogs = new ArrayList<>();
+    private List<NutritionData> nutritionData = new ArrayList<>();
 
     // Default constructor (required by JPA)
-    public User() {}
+    public UserData() {}
 
     // Parameterized constructor
-    public User(Long id, String name, String email, Integer age, Float weight, Float height) {
+    public UserData(Long id, String name, String email, Integer age, Float weight, Float height) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -62,9 +63,9 @@ public class User {
     public Float getHeight() { return height; }
     public void setHeight(Float height) { this.height = height; }
 
-    public List<Workout> getWorkouts() { return workouts; }
-    public void setWorkouts(List<Workout> workouts) { this.workouts = workouts; }
+    public List<WorkoutData> getWorkouts() { return workouts; }
+    public void setWorkouts(List<WorkoutData> workouts) { this.workouts = workouts; }
 
-    public List<NutritionLog> getNutritionLogs() { return nutritionLogs; }
-    public void setNutritionLogs(List<NutritionLog> nutritionLogs) { this.nutritionLogs = nutritionLogs; }
+    public List<NutritionData> getNutritionData() { return nutritionData; }
+    public void setNutritionData(List<NutritionData> nutritionData) { this.nutritionData = nutritionData; }
 }

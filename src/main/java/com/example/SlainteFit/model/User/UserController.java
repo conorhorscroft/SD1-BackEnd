@@ -40,6 +40,10 @@ public class UserController {
         @RequestParam(required = false) Integer age,
         @RequestParam(required = false) Float weight,
         @RequestParam(required = false) Float height) {
+
+            if (id != null) {
+                return userService.getUserById(id);
+            }
             if (email != null) {
         return userService.getUserByEmail(email);
     }

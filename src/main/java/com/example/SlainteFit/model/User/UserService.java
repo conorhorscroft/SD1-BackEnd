@@ -1,8 +1,9 @@
 package com.example.SlainteFit.model.User;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,25 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public List<UserData> getUserByEmail (String email) {
-        return userRepository.findAll().stream().filter(user -> user.getEmail().toLowerCase().equals(email)).collect(Collectors.toList());
-    }
+    // public List<UserData> getUserByEmail (String email) {
+    //     return userRepository.findAll().stream().filter(user -> user.getEmail().toLowerCase().equals(email)).findFirst();
+    // }
+
+    public List<UserData> getUserByEmail(String email) {
+    return userRepository.findByEmail(email)
+            .map(Collections::singletonList)
+            .orElse(Collections.emptyList());
+}
+
+    // public List<UserData> getUserById(Long id) {
+    //     return userRepository.findById(id);
+    // }
+
+    public List<UserData> getUserById(Long id) {
+    return userRepository.findById(id)
+            .map(Collections::singletonList)
+            .orElse(Collections.emptyList());
+}
 
     public UserData addUser(UserData user) {
         userRepository.save(user);

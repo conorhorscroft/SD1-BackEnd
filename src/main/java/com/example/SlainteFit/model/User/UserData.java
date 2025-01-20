@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.example.SlainteFit.model.NutritionData;
 import com.example.SlainteFit.model.WorkoutData;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.*; // Import JPA package
 
@@ -26,6 +27,7 @@ public class UserData {
   
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<WorkoutData> workouts = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)

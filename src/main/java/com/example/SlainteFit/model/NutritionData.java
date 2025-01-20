@@ -1,6 +1,7 @@
 package com.example.SlainteFit.model;
 
 import com.example.SlainteFit.model.User.UserData;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import java.time.LocalDate;
 
@@ -23,6 +24,7 @@ public class NutritionData {
 
     @ManyToOne
     @JoinColumn(name = "id", nullable = false)
+    @JsonBackReference
     private UserData user;
 
     // Getters and Setters

@@ -1,6 +1,7 @@
 package com.example.SlainteFit.model;
 
 import com.example.SlainteFit.model.User.UserData;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 // import JPA package to manage relational data (helps with object-relational mapping)
 import jakarta.persistence.*;
@@ -23,6 +24,7 @@ public class WorkoutData {
 
     @ManyToOne
     @JoinColumn(name = "id", nullable = false)
+    @JsonBackReference
     private UserData user;
 
     // Getters and Setters

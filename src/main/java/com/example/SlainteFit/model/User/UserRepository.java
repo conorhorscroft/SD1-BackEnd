@@ -1,5 +1,6 @@
 package com.example.SlainteFit.model.User;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,7 +11,8 @@ public interface UserRepository extends JpaRepository<UserData, Long> {
 
     @SuppressWarnings("null")
     void deleteById(Long id);
-    Optional<UserData> findById(long id);
+    List<UserData> findById(long id);
+    Optional<UserData> findByEmail(String email);
 
 }
 

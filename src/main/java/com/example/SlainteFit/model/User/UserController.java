@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping(path = "api/v1/user")
+@RequestMapping(path = "api/user")
 @CrossOrigin // allow cross-origin requests
 public class UserController {
     private final UserService userService;

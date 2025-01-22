@@ -3,8 +3,8 @@ package com.example.SlainteFit.model.User;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.SlainteFit.model.NutritionData;
-import com.example.SlainteFit.model.WorkoutData;
+import com.example.SlainteFit.model.Nutrition.NutritionData;
+import com.example.SlainteFit.model.Workouts.WorkoutData;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.*; // Import JPA package
@@ -23,6 +23,8 @@ public class UserData {
     private Integer age;
     private Float weight;
     private Float height;
+    private String phone;
+    private Integer experience;
 
   
 
@@ -37,13 +39,15 @@ public class UserData {
     public UserData() {}
 
     // Parameterized constructor
-    public UserData(Long id, String name, String email, Integer age, Float weight, Float height) {
+    public UserData(Long id, String name, String email, Integer age, Float weight, Float height, String phone, Integer experience) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.age = age;
         this.weight = weight;
         this.height = height;
+        this.phone = phone;
+        this.experience = experience;
     }
 
     // Getters and setters
@@ -64,6 +68,12 @@ public class UserData {
 
     public Float getHeight() { return height; }
     public void setHeight(Float height) { this.height = height; }
+
+     public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
+
+     public Integer getExperience() { return experience; }
+    public void setExperience(Integer experience) { this.experience = experience; }
 
     public List<WorkoutData> getWorkouts() { return workouts; }
     public void setWorkouts(List<WorkoutData> workouts) { this.workouts = workouts; }

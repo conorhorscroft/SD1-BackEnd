@@ -1,4 +1,4 @@
-package com.example.SlainteFit.model;
+package com.example.SlainteFit.model.Workouts;
 
 import com.example.SlainteFit.model.User.UserData;
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 // import JPA package to manage relational data (helps with object-relational mapping)
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.time.Duration;
 
 @Entity
 @Table(name = "workout_data")
@@ -19,7 +20,7 @@ public class WorkoutData {
     private Integer sets;
     private Integer reps;
     private Float weight;
-    // private Float duration;
+    // private Duration duration;
     private Float distance;
 
     @ManyToOne
@@ -46,8 +47,8 @@ public class WorkoutData {
     public Float getWeight() { return weight; }
     public void setWeight(Float weight) { this.weight = weight; }
 
-    // public Float getDuration() { return duration; }
-    // public void setDuration(Float duration) { this.duration = duration; }
+    // public Duration getDuration() { return duration; }
+    // public void setDuration(Duration duration) { this.duration = duration; }
 
     public Float getDistance() { return distance; }
     public void setDistance(Float distance) { this.distance = distance; }

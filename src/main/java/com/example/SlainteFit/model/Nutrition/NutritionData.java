@@ -1,4 +1,4 @@
-package com.example.SlainteFit.model;
+package com.example.SlainteFit.model.Nutrition;
 
 import com.example.SlainteFit.model.User.UserData;
 import com.fasterxml.jackson.annotation.JsonBackReference;

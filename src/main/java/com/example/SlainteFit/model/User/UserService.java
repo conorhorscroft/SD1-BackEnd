@@ -24,19 +24,12 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    // public List<UserData> getUserByEmail (String email) {
-    //     return userRepository.findAll().stream().filter(user -> user.getEmail().toLowerCase().equals(email)).findFirst();
-    // }
-
     public List<UserData> getUserByEmail(String email) {
     return userRepository.findByEmail(email)
             .map(Collections::singletonList)
             .orElse(Collections.emptyList());
 }
 
-    // public List<UserData> getUserById(Long id) {
-    //     return userRepository.findById(id);
-    // }
 
     public List<UserData> getUserById(Long id) {
     return userRepository.findById(id)

@@ -26,6 +26,8 @@ public class UserData {
     private String phone;
     private Integer experience;
 
+    private String password;
+
   
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -74,6 +76,9 @@ public class UserData {
 
      public Integer getExperience() { return experience; }
     public void setExperience(Integer experience) { this.experience = experience; }
+
+    public String getPassword() { return password; }
+    public void setPassword (String password) { this.password = password; }
 
     public List<WorkoutData> getWorkouts() { return workouts; }
     public void setWorkouts(List<WorkoutData> workouts) { this.workouts = workouts; }

@@ -33,7 +33,7 @@ public class UserController {
     }
 
     @GetMapping
-    public List<UserData> getUsers( 
+    public List<User> getUsers( 
         @RequestParam(required = false) Long id,
         @RequestParam(required = false) String name,
         @RequestParam(required = false) String email,
@@ -51,16 +51,16 @@ public class UserController {
 
         }
     @PostMapping
-    public ResponseEntity<UserData> addUserEntity(@RequestBody UserData user) {
+    public ResponseEntity<User> addUserEntity(@RequestBody User user) {
         
         
-        UserData createdUser = userService.addUser(user);
+        User createdUser = userService.addUser(user);
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 
     @PutMapping 
-    public ResponseEntity<UserData> updateUser(@RequestBody UserData user) {
-        UserData resultUser = userService.updateUser(user);
+    public ResponseEntity<User> updateUser(@RequestBody User user) {
+        User resultUser = userService.updateUser(user);
         if (resultUser != null) {
             return new ResponseEntity<>(resultUser, HttpStatus.OK);
         }

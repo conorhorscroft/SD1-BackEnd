@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.SlainteFit.model.User.UserData;
+import com.example.SlainteFit.model.User.User;
 import com.example.SlainteFit.model.User.UserRepository;
 
 import jakarta.transaction.Transactional;
@@ -23,10 +23,10 @@ public class WorkoutService {
 
     @Transactional
     public WorkoutData addWorkoutToUser(Long userId, WorkoutData workout) {
-        Optional<UserData> userOpt = userRepository.findById(userId);
+        Optional<User> userOpt = userRepository.findById(userId);
 
         if (userOpt.isPresent()) {
-            UserData user = userOpt.get();
+            User user = userOpt.get();
             user.getWorkouts().add(workout);
             userRepository.save(user);
             return workout;

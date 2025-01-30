@@ -7,12 +7,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<UserData, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
     @SuppressWarnings("null")
     void deleteById(Long id);
-    List<UserData> findById(long id);
-    Optional<UserData> findByEmail(String email);
+    List<User> findById(long id);
+    Optional<User> findByEmail(String email);
+    Optional<User> findByVerificationCode(String verificationCode);
 
 }
 

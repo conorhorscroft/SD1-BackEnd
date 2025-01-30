@@ -1,12 +1,12 @@
 package com.example.SlainteFit.model.Workouts;
 
-import com.example.SlainteFit.model.User.UserData;
+import com.example.SlainteFit.model.User.User;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 // import JPA package to manage relational data (helps with object-relational mapping)
 import jakarta.persistence.*;
 import java.time.LocalDate;
-import java.time.Duration;
+// import java.time.Duration;
 
 @Entity
 @Table(name = "workout_data")
@@ -26,7 +26,7 @@ public class WorkoutData {
     @ManyToOne
     @JoinColumn(name = "id", nullable = false)
     @JsonBackReference
-    private UserData user;
+    private User user;
 
     // Getters and Setters
     public Long getId() { return workout_id; }
@@ -53,7 +53,7 @@ public class WorkoutData {
     public Float getDistance() { return distance; }
     public void setDistance(Float distance) { this.distance = distance; }
 
-    public UserData getUser() { return user; }
-    public void setUser(UserData user) { this.user = user; }
+    public User getUser() { return user; }
+    public void setUser(User user) { this.user = user; }
 }
 

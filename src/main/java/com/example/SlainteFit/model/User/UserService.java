@@ -24,24 +24,24 @@ public class UserService {
         this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
-    public List<UserData> getUsers() {
+    public List<User> getUsers() {
         return userRepository.findAll();
     }
 
-    public List<UserData> getUserByEmail(String email) {
+    public List<User> getUserByEmail(String email) {
     return userRepository.findByEmail(email)
             .map(Collections::singletonList)
             .orElse(Collections.emptyList());
 }
 
 
-    public List<UserData> getUserById(Long id) {
+    public List<User> getUserById(Long id) {
     return userRepository.findById(id)
             .map(Collections::singletonList)
             .orElse(Collections.emptyList());
 }
 
-    public UserData addUser(UserData user) {
+    public User addUser(User user) {
         // Hash password before saving
         String hashedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(hashedPassword);
@@ -51,11 +51,11 @@ public class UserService {
         return user;
     }
 
-    public UserData updateUser(UserData updatedUser) {
-        Optional<UserData> existingUser = userRepository.findById(updatedUser.getId());
+    public User updateUser(User updatedUser) {
+        Optional<User> existingUser = userRepository.findById(updatedUser.getId());
 
         if (existingUser.isPresent()) {
-            UserData userToUpdate = existingUser.get();
+            User userToUpdate = existingUser.get();
             userToUpdate.setId(updatedUser.getId());
             userToUpdate.setEmail(updatedUser.getEmail());
             userToUpdate.setAge(updatedUser.getAge());

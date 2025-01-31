@@ -77,6 +77,20 @@ public class User implements UserDetails {
         this.experience = experience;
     }
 
+        // Constructor without id ( as auto-generated )
+       public User(String name, String email, Integer age, Float weight, String password, Float height, String phone, Integer experience) {
+        this.name = name;
+        this.email = email;
+        this.age = age;
+        this.weight = weight;
+        this.height = height;
+        this.password = password;
+        this.phone = phone;
+        this.experience = experience;
+    }
+
+    
+
     // Getters and setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }

@@ -1,4 +1,4 @@
-package com.example.SlainteFit.model.User;
+package com.example.SlainteFit.service;
 
 import java.util.Collections;
 import java.util.List;
@@ -10,6 +10,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.example.SlainteFit.model.User.User;
+import com.example.SlainteFit.model.User.UserRepository;
 
 import jakarta.transaction.Transactional;
 

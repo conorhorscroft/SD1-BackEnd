@@ -1,4 +1,4 @@
-package com.example.SlainteFit.model.Workouts;
+package com.example.SlainteFit.service;
 
 import java.util.Optional;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.SlainteFit.model.User.User;
 import com.example.SlainteFit.model.User.UserRepository;
+import com.example.SlainteFit.model.Workouts.WorkoutData;
 
 import jakarta.transaction.Transactional;
 

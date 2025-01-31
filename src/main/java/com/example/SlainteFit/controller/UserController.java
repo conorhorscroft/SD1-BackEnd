@@ -1,4 +1,4 @@
-package com.example.SlainteFit.model.User;
+package com.example.SlainteFit.controller;
 
 
 
@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.SlainteFit.model.User.User;
+import com.example.SlainteFit.service.UserService;
 
 
 

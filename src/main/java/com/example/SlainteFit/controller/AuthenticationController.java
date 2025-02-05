@@ -41,7 +41,8 @@ public class AuthenticationController {
         authenticatedUser.getName(),
         authenticatedUser.getAge(),
         authenticatedUser.getWeight(),
-        authenticatedUser.getHeight()
+        authenticatedUser.getHeight(),
+        authenticatedUser.getExperience()
             );
         return ResponseEntity.ok(loginResponse);
     }

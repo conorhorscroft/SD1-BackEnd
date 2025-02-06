@@ -15,7 +15,7 @@ import com.example.SlainteFit.service.WorkoutService;
 
 @RestController
 @RequestMapping("/api/workouts")
-@CrossOrigin
+@CrossOrigin(origins = "*")  // Allow all origins for testing
 public class WorkoutController {
     private final WorkoutService workoutService;
 
@@ -26,6 +26,9 @@ public class WorkoutController {
 
     @PostMapping("/{userId}")
     public ResponseEntity<WorkoutData> addWorkout(@PathVariable Long userId, @RequestBody WorkoutData workout) {
+        System.out.println("🚀 Received request to add workout for userId: " + userId);
+    System.out.println("Workout data: " + workout);
+       
         WorkoutData addedWorkout = workoutService.addWorkoutToUser(userId, workout);
         
         if (addedWorkout != null) {

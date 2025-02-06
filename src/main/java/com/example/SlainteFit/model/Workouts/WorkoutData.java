@@ -29,8 +29,8 @@ public class WorkoutData {
     private User user;
 
     // Getters and Setters
-    public Long getId() { return workout_id; }
-    public void setId(Long workout_id) { this.workout_id = workout_id; }
+    public Long getWorkoutId() { return workout_id; }
+    public void setWorkoutId(Long workout_id) { this.workout_id = workout_id; }
 
     public String getExerciseName() { return exerciseName; }
     public void setExerciseName(String exerciseName) { this.exerciseName = exerciseName; }

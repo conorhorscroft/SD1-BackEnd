@@ -93,6 +93,9 @@ public class UserService {
         if (request.getEmail() != null) {
             user.setEmail(request.getEmail());
         }
+          if (request.getPhone() != null) {
+            user.setPhone(request.getPhone());
+        }
         if (request.getAge() != null) {
             user.setAge(request.getAge());
         }

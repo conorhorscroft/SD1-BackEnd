@@ -63,7 +63,7 @@ public class UserController {
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 
-    @PutMapping 
+    
     // public ResponseEntity<User> updateUser(@RequestBody User user) {
     //     User resultUser = userService.updateUser(user);
     //     if (resultUser != null) {
@@ -71,6 +71,7 @@ public class UserController {
     //     }
     //     return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     // }
+    @PutMapping("/{userId}")
         public ResponseEntity<User> updateUserProfile(
             @PathVariable Long userId,
             @RequestBody UpdateUserProfileRequest request) {

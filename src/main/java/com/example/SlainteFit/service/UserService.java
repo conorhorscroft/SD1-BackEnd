@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -11,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.example.SlainteFit.dto.UpdateUserProfileRequest;
 import com.example.SlainteFit.model.User.User;
 import com.example.SlainteFit.model.User.UserRepository;
 
@@ -54,32 +56,61 @@ public class UserService {
         return user;
     }
 
-    public User updateUser(User updatedUser) {
-        Optional<User> existingUser = userRepository.findById(updatedUser.getId());
+    // public User updateUser(User updatedUser) {
+    //     Optional<User> existingUser = userRepository.findById(updatedUser.getId());
 
-        if (existingUser.isPresent()) {
-            User userToUpdate = existingUser.get();
-            userToUpdate.setId(updatedUser.getId());
-            userToUpdate.setEmail(updatedUser.getEmail());
-            userToUpdate.setAge(updatedUser.getAge());
-            userToUpdate.setHeight(updatedUser.getHeight());
-            userToUpdate.setWeight(updatedUser.getWeight());
-            userToUpdate.setPhone(updatedUser.getPhone());
-            userToUpdate.setExperience(updatedUser.getExperience());
-            userToUpdate.setNutritionData(updatedUser.getNutritionData());
-            userToUpdate.setWorkouts(updatedUser.getWorkouts());
+    //     if (existingUser.isPresent()) {
+    //         User userToUpdate = existingUser.get();
+    //         userToUpdate.setId(updatedUser.getId());
+    //         userToUpdate.setEmail(updatedUser.getEmail());
+    //         userToUpdate.setAge(updatedUser.getAge());
+    //         userToUpdate.setHeight(updatedUser.getHeight());
+    //         userToUpdate.setWeight(updatedUser.getWeight());
+    //         userToUpdate.setPhone(updatedUser.getPhone());
+    //         userToUpdate.setExperience(updatedUser.getExperience());
+    //         userToUpdate.setNutritionData(updatedUser.getNutritionData());
+    //         userToUpdate.setWorkouts(updatedUser.getWorkouts());
 
-            if (updatedUser.getPassword() != null && !updatedUser.getPassword().isEmpty()) {
-                String hashedPassword = passwordEncoder.encode(updatedUser.getPassword());
-                userToUpdate.setPassword(hashedPassword); // Set the hashed password to the user object
-            }
+    //         if (updatedUser.getPassword() != null && !updatedUser.getPassword().isEmpty()) {
+    //             String hashedPassword = passwordEncoder.encode(updatedUser.getPassword());
+    //             userToUpdate.setPassword(hashedPassword); // Set the hashed password to the user object
+    //         }
 
-            userRepository.save(userToUpdate);
-            return userToUpdate;
+    //         userRepository.save(userToUpdate);
+    //         return userToUpdate;
             
+    //     }
+    //     return null;
+    // }
+    public User updateUserProfile(Long userId, UpdateUserProfileRequest request) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with id: " + userId));
+
+        // Update only the fields that are provided in the request
+        if (request.getName() != null) {
+            user.setName(request.getName());
         }
-        return null;
+        if (request.getEmail() != null) {
+            user.setEmail(request.getEmail());
+        }
+        if (request.getAge() != null) {
+            user.setAge(request.getAge());
+        }
+        if (request.getWeight() != null) {
+            user.setWeight(request.getWeight());
+        }
+        if (request.getHeight() != null) {
+            user.setHeight(request.getHeight());
+        }
+        if (request.getExperience() != null) {
+            user.setExperience(request.getExperience());
+        }
+
+        return userRepository.save(user);
     }
+
+
+
     @Transactional // ensure operation is part of a transaction (maintain data integrity)
     public void deleteUser(Long id) {
         userRepository.deleteById(id);

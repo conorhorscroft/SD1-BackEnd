@@ -36,6 +36,11 @@ public class User implements UserDetails {
     private Float height;
     private String phone;
     private Integer experience;
+    private Integer strength;
+    private Integer endurance;
+    private Integer weightLoss;
+    private Integer health;
+    private Float hoursAvailable;
 
 
     @Column(nullable = false)
@@ -78,7 +83,7 @@ public class User implements UserDetails {
     }
 
         // Constructor without id ( as auto-generated )
-       public User(String name, String email, Integer age, Float weight, String password, Float height, String phone, Integer experience) {
+       public User(String name, String email, Integer age, Float weight, String password, Float height, String phone, Integer experience, Integer strength, Integer endurance, Integer weightLoss, Integer health, Float hoursAvailable) {
         this.name = name;
         this.email = email;
         this.age = age;
@@ -87,6 +92,11 @@ public class User implements UserDetails {
         this.password = password;
         this.phone = phone;
         this.experience = experience;
+        this.strength = strength;
+        this.endurance = endurance;
+        this.weightLoss = weightLoss;
+        this.health = health;
+        this.hoursAvailable = hoursAvailable;
     }
 
     
@@ -115,6 +125,21 @@ public class User implements UserDetails {
 
      public Integer getExperience() { return experience; }
     public void setExperience(Integer experience) { this.experience = experience; }
+
+    public Integer getStrength() { return strength; }
+    public void setStrength(Integer strength) { this.strength = strength; }
+
+    public Integer getEndurance() { return endurance; }
+    public void setEndurance(Integer endurance) { this.endurance = endurance; }
+
+    public Integer getWeightLoss() { return weightLoss; }
+    public void setWeightLoss(Integer weightLoss) { this.weightLoss = weightLoss; }
+
+    public Integer getHealth() { return health; }
+    public void setHealth(Integer health) { this.health = health; }
+
+    public Float getHoursAvailable() { return hoursAvailable; }
+    public void setHoursAvailable(Float hoursAvailable) { this.hoursAvailable = hoursAvailable; }
 
     public String getPassword() { return password; }
     public void setPassword (String password) { this.password = password; }

@@ -15,9 +15,14 @@ public class LoginResponse {
     private Float weight;
     private Float height;
     private Integer experience;
+    private Integer strength;
+    private Integer endurance;
+    private Integer weightLoss;
+    private Integer health;
+    private Float hoursAvailable;
 
     public LoginResponse(String token, long expiresIn, Long userId, String email, 
-                         String name, Integer age, Float weight, Float height, Integer experience) {
+                         String name, Integer age, Float weight, Float height, Integer experience, Integer strength, Integer endurance, Integer weightLoss, Integer health, Float hoursAvailable) {
         this.token = token;
         this.expiresIn = expiresIn;
         this.userId = userId;
@@ -27,5 +32,10 @@ public class LoginResponse {
         this.weight = weight;
         this.height = height;
         this.experience = experience;
+        this.strength = strength;
+        this.endurance = endurance;
+        this.weightLoss = weightLoss;
+        this.health = health;
+        this.hoursAvailable = hoursAvailable;
     }
 }

@@ -42,7 +42,12 @@ public class AuthenticationController {
         authenticatedUser.getAge(),
         authenticatedUser.getWeight(),
         authenticatedUser.getHeight(),
-        authenticatedUser.getExperience()
+        authenticatedUser.getExperience(),
+        authenticatedUser.getStrength(),
+        authenticatedUser.getEndurance(),
+        authenticatedUser.getWeightLoss(),
+        authenticatedUser.getHealth(),
+        authenticatedUser.getHoursAvailable()
             );
         return ResponseEntity.ok(loginResponse);
     }

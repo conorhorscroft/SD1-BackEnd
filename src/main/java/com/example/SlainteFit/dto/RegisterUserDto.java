@@ -14,6 +14,11 @@ public class RegisterUserDto {
     private Float height;
     private String phone;
     private Integer experience;
+    private Integer strength;
+    private Integer endurance;
+    private Integer weightLoss;
+    private Integer health;
+    private Float hoursAvailable;
 
 
 }

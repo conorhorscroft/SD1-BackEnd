@@ -108,6 +108,21 @@ public class UserService {
         if (request.getExperience() != null) {
             user.setExperience(request.getExperience());
         }
+          if (request.getStrength() != null) {
+            user.setStrength(request.getStrength());
+        }
+          if (request.getEndurance() != null) {
+            user.setEndurance(request.getEndurance());
+        }
+          if (request.getWeightLoss() != null) {
+            user.setWeightLoss(request.getWeightLoss());
+        }
+          if (request.getHealth() != null) {
+            user.setHealth(request.getHealth());
+        }
+          if (request.getHoursAvailable() != null) {
+            user.setHoursAvailable(request.getHoursAvailable());
+        }
 
         return userRepository.save(user);
     }

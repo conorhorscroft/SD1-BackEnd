@@ -8,6 +8,11 @@ public class UpdateUserProfileRequest {
     private Float weight;
     private Float height;
     private Integer experience;
+    private Integer strength;
+    private Integer endurance;
+    private Integer weightLoss;
+    private Integer health;
+    private Float hoursAvailable;
 
     // Getters and setters
     public String getName() { return name; }
@@ -30,4 +35,19 @@ public class UpdateUserProfileRequest {
     
     public Integer getExperience() { return experience; }
     public void setExperience(Integer experience) { this.experience = experience; }
+
+    public Integer getStrength() { return strength; }
+    public void setStrength(Integer strength) { this.strength = strength; }
+
+    public Integer getEndurance() { return endurance; }
+    public void setEndurance(Integer endurance) { this.endurance = endurance; }
+
+    public Integer getWeightLoss() { return weightLoss; }
+    public void setWeightLoss(Integer weightLoss) { this.weightLoss = weightLoss; }
+
+    public Integer getHealth() { return health; }
+    public void setHealth(Integer health) { this.health = health; }
+
+    public Float getHoursAvailable() { return hoursAvailable; }
+    public void setHoursAvailable(Float hoursAvailable) { this.hoursAvailable = hoursAvailable; }
 }

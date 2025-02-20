@@ -10,6 +10,7 @@ public class LoginResponse {
     private long expiresIn;
     private Long userId;
     private String email;
+    private String phone;
     private String name;
     private Integer age;
     private Float weight;
@@ -21,12 +22,13 @@ public class LoginResponse {
     private Integer health;
     private Float hoursAvailable;
 
-    public LoginResponse(String token, long expiresIn, Long userId, String email, 
+    public LoginResponse(String token, long expiresIn, Long userId, String email, String phone, 
                          String name, Integer age, Float weight, Float height, Integer experience, Integer strength, Integer endurance, Integer weightLoss, Integer health, Float hoursAvailable) {
         this.token = token;
         this.expiresIn = expiresIn;
         this.userId = userId;
         this.email = email;
+        this.phone = phone;
         this.name = name;
         this.age = age;
         this.weight = weight;

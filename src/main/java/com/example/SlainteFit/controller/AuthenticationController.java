@@ -38,6 +38,7 @@ public class AuthenticationController {
             jwtService.getExpirationTime(),
               authenticatedUser.getId(),
         authenticatedUser.getEmail(),
+        authenticatedUser.getPhone(),
         authenticatedUser.getName(),
         authenticatedUser.getAge(),
         authenticatedUser.getWeight(),

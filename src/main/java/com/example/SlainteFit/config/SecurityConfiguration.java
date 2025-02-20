@@ -36,6 +36,7 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/auth/**").permitAll()
@@ -46,6 +47,7 @@ public class SecurityConfiguration {
                 )
                 .authenticationProvider(daoAuthenticationProvider()) // Use DaoAuthenticationProvider
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                
 
         return http.build();
     }
@@ -61,9 +63,13 @@ public class SecurityConfiguration {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("https://sd1-backend.onrender.com/", "http://localhost:8080")); // Backend Url
+        configuration.setAllowedOrigins(List.of("https://sd1-backend.onrender.com", "http://localhost:8080",
+            "http://localhost:8081"  )); // Backend Url and expo web url
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
-        configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
+        configuration.setAllowedHeaders(List.of("Authorization", "Content-Type", "Access-Control-Allow-Origin",       // Added additional headers
+            "Access-Control-Allow-Credentials"));
+             configuration.setAllowCredentials(true); // Allow credentials
+        configuration.setMaxAge(3600L);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);

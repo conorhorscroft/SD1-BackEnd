@@ -48,7 +48,8 @@ public class AuthenticationController {
         authenticatedUser.getEndurance(),
         authenticatedUser.getWeightLoss(),
         authenticatedUser.getHealth(),
-        authenticatedUser.getHoursAvailable()
+        authenticatedUser.getHoursAvailable(),
+        authenticatedUser.getGender()
             );
         return ResponseEntity.ok(loginResponse);
     }

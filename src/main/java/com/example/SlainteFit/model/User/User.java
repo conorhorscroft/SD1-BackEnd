@@ -41,6 +41,7 @@ public class User implements UserDetails {
     private Integer weightLoss;
     private Integer health;
     private Float hoursAvailable;
+    private String gender;
 
 
     @Column(nullable = false)
@@ -83,7 +84,7 @@ public class User implements UserDetails {
     }
 
         // Constructor without id ( as auto-generated )
-       public User(String name, String email, Integer age, Float weight, String password, Float height, String phone, Integer experience, Integer strength, Integer endurance, Integer weightLoss, Integer health, Float hoursAvailable) {
+       public User(String name, String email, Integer age, Float weight, String password, Float height, String phone, Integer experience, Integer strength, Integer endurance, Integer weightLoss, Integer health, Float hoursAvailable, String gender) {
         this.name = name;
         this.email = email;
         this.age = age;
@@ -97,6 +98,7 @@ public class User implements UserDetails {
         this.weightLoss = weightLoss;
         this.health = health;
         this.hoursAvailable = hoursAvailable;
+        this.gender = gender;
     }
 
     
@@ -143,6 +145,9 @@ public class User implements UserDetails {
 
     public String getPassword() { return password; }
     public void setPassword (String password) { this.password = password; }
+
+    public String getGender() { return gender; }
+    public void setGender(String gender) { this.gender = gender; }
 
     public List<WorkoutData> getWorkouts() { return workouts; }
     public void setWorkouts(List<WorkoutData> workouts) { this.workouts = workouts; }

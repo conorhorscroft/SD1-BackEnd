@@ -19,6 +19,7 @@ public class RegisterUserDto {
     private Integer weightLoss;
     private Integer health;
     private Float hoursAvailable;
+    private String gender;
 
 
 }

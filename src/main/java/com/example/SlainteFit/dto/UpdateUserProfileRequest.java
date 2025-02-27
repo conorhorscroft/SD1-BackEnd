@@ -13,6 +13,7 @@ public class UpdateUserProfileRequest {
     private Integer weightLoss;
     private Integer health;
     private Float hoursAvailable;
+    private String gender;
 
     // Getters and setters
     public String getName() { return name; }
@@ -50,4 +51,7 @@ public class UpdateUserProfileRequest {
 
     public Float getHoursAvailable() { return hoursAvailable; }
     public void setHoursAvailable(Float hoursAvailable) { this.hoursAvailable = hoursAvailable; }
+
+    public String getGender() { return gender; }
+    public void setGender(String gender) { this.gender = gender; };
 }

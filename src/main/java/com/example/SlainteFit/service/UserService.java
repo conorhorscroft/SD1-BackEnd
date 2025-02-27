@@ -123,6 +123,9 @@ public class UserService {
           if (request.getHoursAvailable() != null) {
             user.setHoursAvailable(request.getHoursAvailable());
         }
+          if (request.getGender() != null) {
+            user.setGender(request.getGender());
+        }
 
         return userRepository.save(user);
     }

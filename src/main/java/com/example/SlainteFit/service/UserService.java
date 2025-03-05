@@ -2,7 +2,7 @@ package com.example.SlainteFit.service;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

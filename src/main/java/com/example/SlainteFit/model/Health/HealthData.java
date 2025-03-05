@@ -24,6 +24,8 @@ public class HealthData {
     private Integer mood;
     private Integer hoursOfSleep;
     private Integer screenTime;
+    private boolean timeOutdoors;
+
 
     @ManyToOne
     @JoinColumn(name = "id", nullable = false)
@@ -76,6 +78,14 @@ public class HealthData {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public boolean isTimeOutdoors() {
+        return timeOutdoors;
+    }
+
+    public void setTimeOutdoors(boolean timeOutdoors) {
+        this.timeOutdoors = timeOutdoors;
     }
 
     

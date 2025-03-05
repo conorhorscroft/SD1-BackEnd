@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import com.example.SlainteFit.model.User.User;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,6 +25,8 @@ public class HealthData {
     private Integer mood;
     private Integer hoursOfSleep;
     private Integer screenTime;
+
+    @Column(name = "time_outdoors")
     private boolean timeOutdoors;
 
 

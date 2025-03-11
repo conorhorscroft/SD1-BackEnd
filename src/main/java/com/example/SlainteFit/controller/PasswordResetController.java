@@ -16,7 +16,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/password")
 public class PasswordResetController {
 
     @Autowired

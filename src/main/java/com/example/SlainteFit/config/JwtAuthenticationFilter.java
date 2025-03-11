@@ -73,5 +73,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         } catch (Exception exception) {
             handlerExceptionResolver.resolveException(request, response, null, exception);
         }
+
+        
     }
+
+    @Override
+    protected boolean shouldNotFilter(@NonNull HttpServletRequest request) {
+    String path = request.getRequestURI();
+    return path.startsWith("/auth/request-reset") || path.startsWith("/auth/reset-password");
+}
+
+
 }

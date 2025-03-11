@@ -53,6 +53,8 @@ public class User implements UserDetails {
     private LocalDateTime verificationCodeExpiresAt;
     private boolean enabled;
     
+    private String resetToken;
+    private LocalDateTime resetTokenExpiry;
 
   
 

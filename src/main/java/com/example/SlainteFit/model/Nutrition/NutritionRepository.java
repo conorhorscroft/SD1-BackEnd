@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface NutritionRepository extends JpaRepository<NutritionData, Long> {
 
 
-    // You can add more custom queries if needed
+    
 }

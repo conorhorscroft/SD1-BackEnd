@@ -7,7 +7,7 @@ public class DailyCaloriesDto {
     private Integer profileId;
     private Integer totalCalories;
 
-    // Getters and Setters
+    // Getters and Setter
 
     public Integer getProfileId() {
         return profileId;

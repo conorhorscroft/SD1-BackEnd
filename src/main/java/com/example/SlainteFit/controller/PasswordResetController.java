@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.SlainteFit.model.User.User;
@@ -19,8 +20,15 @@ import org.springframework.mail.javamail.JavaMailSender;
 @RequestMapping("/password")
 public class PasswordResetController {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+
+    public PasswordResetController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
+
+
 
     @Autowired
     private JavaMailSender mailSender;
@@ -64,7 +72,7 @@ public class PasswordResetController {
             return ResponseEntity.badRequest().body("Token expired");
         }
 
-        user.setPassword(new BCryptPasswordEncoder().encode(newPassword)); // Hash new password
+        user.setPassword(passwordEncoder.encode(newPassword)); // Hash new password
         user.setResetToken(null);
         user.setResetTokenExpiry(null);
         userRepository.save(user);

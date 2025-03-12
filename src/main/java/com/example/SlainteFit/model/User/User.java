@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.example.SlainteFit.model.Health.HealthData;
 import com.example.SlainteFit.model.Nutrition.NutritionData;
 import com.example.SlainteFit.model.Workouts.WorkoutData;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -66,6 +67,10 @@ public class User implements UserDetails {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<NutritionData> nutritionData = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<HealthData> healthDataList;
 
     // Default constructor (required by JPA) - lombok is now handling
     public User() {}

@@ -1,5 +1,6 @@
 package com.example.SlainteFit.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,6 +47,12 @@ public class HealthDataService {
         }
         return List.of(); // return empty list if user not found
 
+    }
+
+    @Transactional
+    public List<HealthData> getLastWeekHealthData(Long userId) {
+    LocalDate sevenDaysAgo = LocalDate.now().minusDays(7);
+    return healthDataRepository.findByUserIdAndDateAfter(userId, sevenDaysAgo);
     }
 
 }

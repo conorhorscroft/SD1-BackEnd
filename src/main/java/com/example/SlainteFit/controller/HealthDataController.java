@@ -52,4 +52,15 @@ public ResponseEntity<List<HealthData>> getHealthData(@PathVariable Long userId)
     }
 }
 
+ @GetMapping("/lastweek/{userId}")
+ public ResponseEntity<List<HealthData>> getLastWeekHealthData(@PathVariable Long userId) {
+     List<HealthData> healthDataList = healthDataService.getLastWeekHealthData(userId);
+
+     if (healthDataList.isEmpty()) {
+         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+     } else {
+         return new ResponseEntity<>(healthDataList, HttpStatus.OK);
+     }
+ }
+
 }

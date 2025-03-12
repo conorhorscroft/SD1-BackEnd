@@ -80,7 +80,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(@NonNull HttpServletRequest request) {
     String path = request.getRequestURI();
-    return path.startsWith("/auth/request-reset") || path.startsWith("/auth/reset-password");
+    return path.startsWith("/password/request-reset") || path.startsWith("/password/reset-password");
 }
 
 

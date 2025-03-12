@@ -37,9 +37,12 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .csrf(csrf -> csrf.ignoringRequestMatchers("/password/request-reset"))
+                .csrf(csrf -> csrf.ignoringRequestMatchers("/password/reset-password"))
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/password/request-reset").permitAll()  // Explicitly allow password reset
+                        .requestMatchers("/password/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session

@@ -61,4 +61,14 @@ public class DailyCalories {
     public void setDateValue(LocalDateTime dateValue) {
         this.dateValue = dateValue;
     }
+
+    @Override
+    public String toString() {
+        return "DailyCalories{" +
+                "id=" + id +
+                ", profileId=" + profileId +
+                ", totalCalories=" + totalCalories +
+                ", dateValue=" + dateValue +
+                '}';
+    }
 }

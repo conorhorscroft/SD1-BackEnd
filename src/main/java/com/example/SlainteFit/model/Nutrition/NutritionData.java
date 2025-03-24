@@ -22,6 +22,9 @@ public class NutritionData {
     private Float fats;
     private Float hydration;
 
+    @Column(name = "meal_name")
+    private String mealName;
+
     @ManyToOne
     @JoinColumn(name = "id", nullable = false)
     @JsonBackReference
@@ -30,6 +33,22 @@ public class NutritionData {
     // Getters and Setters
     public Long getId() { return nutrition_id; }
     public void setId(Long nutrition_id) { this.nutrition_id = nutrition_id; }
+
+    public Long getNutrition_id() {
+        return nutrition_id;
+    }
+
+    public void setNutrition_id(Long nutrition_id) {
+        this.nutrition_id = nutrition_id;
+    }
+
+    public String getMealName() {
+        return mealName;
+    }
+
+    public void setMealName(String mealName) {
+        this.mealName = mealName;
+    }
 
     public LocalDate getDate() { return date; }
     public void setDate(LocalDate date) { this.date = date; }

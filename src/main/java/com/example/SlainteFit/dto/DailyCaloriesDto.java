@@ -1,13 +1,13 @@
 package com.example.SlainteFit.dto;
-
 import java.time.LocalDateTime;
+
 
 public class DailyCaloriesDto {
 
     private Integer profileId;
     private Integer totalCalories;
 
-    // Getters and Setter
+    // Getters and Setters
 
     public Integer getProfileId() {
         return profileId;
@@ -24,4 +24,14 @@ public class DailyCaloriesDto {
     public void setTotalCalories(Integer totalCalories) {
         this.totalCalories = totalCalories;
     }
+
+    @Override
+    public String toString() {
+        return "DailyCaloriesDto{" +
+                "profileId=" + profileId +
+                ", totalCalories=" + totalCalories +
+                '}';
+    }
 }
+
+

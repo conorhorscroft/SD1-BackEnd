@@ -10,6 +10,15 @@ public class NutritionDataDTO {
     private Float fats;
     private Float hydration;
     private Long userId;
+    private String mealName;
+
+    public String getMealName() {
+        return mealName;
+    }
+
+    public void setMealName(String mealName) {
+        this.mealName = mealName;
+    }
 
     public LocalDate getDate() { return date; }
     public void setDate(LocalDate date) { this.date = date; }

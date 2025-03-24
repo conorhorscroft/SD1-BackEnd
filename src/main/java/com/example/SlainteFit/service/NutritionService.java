@@ -5,6 +5,8 @@ import com.example.SlainteFit.model.Nutrition.NutritionData;
 import com.example.SlainteFit.model.Nutrition.NutritionRepository;
 import com.example.SlainteFit.model.User.User;
 import com.example.SlainteFit.model.User.UserRepository;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,6 +39,8 @@ public class NutritionService {
             logger.warn("User is null! This might cause a failure.");
         }
 
+        System.out.println("Saving Nutrition Data..."+ dto.toString());
+
         NutritionData nutritionData = new NutritionData();
         nutritionData.setDate(dto.getDate());
         nutritionData.setCalories(dto.getCalories());
@@ -45,6 +49,7 @@ public class NutritionService {
         nutritionData.setFats(dto.getFats());
         nutritionData.setHydration(dto.getHydration());
         nutritionData.setUser(user);
+        nutritionData.setMealName(dto.getMealName());
 
         NutritionData savedData = nutritionRepository.save(nutritionData);
 
@@ -76,5 +81,10 @@ public class NutritionService {
             logger.warn("Nutrition Data with ID={} not found. Deletion failed.", id);
             return false;
         }
+    }
+
+    public List<NutritionData> getNutritionDataByUserIdAndDate(Long userId) {
+        LocalDate today = LocalDate.now();
+        return nutritionRepository.findByUserIdAndDate(userId, today);
     }
 }
